@@ -12,7 +12,7 @@ permissions: write-all
 
   
 jobs:
-  Set-up-env:
+  Set-up-env-and-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository  #REpository and file need to be checked out when workflow runs files within the repo
@@ -28,9 +28,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
             python-version: '3.9'
-  Run-code:
-    runs-on: ubuntu-latest
-    steps:
       - name: Run script
         #Inside run: use same exact things as would on command line
         run: |
