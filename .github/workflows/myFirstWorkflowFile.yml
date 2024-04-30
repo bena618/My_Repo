@@ -6,7 +6,7 @@ on:
       - 'fileOne.py' # github can be trigger by a change to any file in to repo...
       - '.github/workflows/myFirstWorkflowFile.yml' #...including the workflow itself by specifying its path
   schedule:
-    - cron: '* * * * *' #Worklow can run on a schedule using cron jobs      
+    - cron: '50 1 1 1 1' #Worklow can run on a schedule using cron jobs      
 
 permissions: write-all
 
@@ -34,6 +34,7 @@ jobs:
       - name: Run script
         #Inside run: use same exact things as would on command line
         run: |
+            ls
             python fileOne.py
           #All python packages/dependencies that are needed be installed every run it does not stay
           #(and would need to be installed before file)
