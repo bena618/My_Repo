@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
             python-version: '3.9'
-          #Since the python needs was set up in the other job and not in the one with the run script it would not work here so need to 
+          #Since the localphat from checking out the repo and the python needs was set up in the other job and not in the one with the run script it would not work here so need to 
           #make it so both run in the same job
       - name: Run script
         #Inside run: use same exact things as would on command line
