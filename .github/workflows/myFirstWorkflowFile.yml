@@ -50,4 +50,5 @@ jobs:
 #     - name: commit changes
 #        uses: ad-m/github-push-action@master
 #        with:
-#           github_token: ${{ secrets.s1 }} 
+            #secrets.{secret name} is the way to access repository secrets
+#           github_token: ${{ secrets.GithubTokenWithPermissionsSuchAsMakingCommits }} 
