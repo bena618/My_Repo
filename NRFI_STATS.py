@@ -28,8 +28,8 @@ url = 'https://www.baseball-reference.com/leagues/majors/2024-schedule.shtml'
 response = requests.get(url,headers=headers)   
 
 if response.status_code == 200:
-   soup = BeautifulSoup(response.text, 'html.parser')
-   links = soup.find_all('a')
+  soup = BeautifulSoup(response.text, 'html.parser')
+  links = soup.find_all('a')
 
   mlb_game_dates = []
   
@@ -167,4 +167,4 @@ if response.status_code == 200:
                                       stats[dotw[i]] += 1
                                       stats[f'{gots}'] += 1
                             
-          print(stats
+          print(stats)
