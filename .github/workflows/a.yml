@@ -40,4 +40,5 @@ jobs:
             pip install pandas
             pip install datetime
             pip install selenium
+            pip install matplotlib
             python NRFI_STATS.py
