@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            fileOne.py
+            NRFI_STATS.py
           sparse-checkout-cone-mode: false
     
       - name: Set up Python
