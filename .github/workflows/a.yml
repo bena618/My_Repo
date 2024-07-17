@@ -1,0 +1,53 @@
+name: Get the NRFI stats
+on: 
+  workflow_dispatch: # This makes it so can manually trigger the workflow(optional)
+  push:
+    paths:
+      - 'NRFI_STATS.py' # github can be trigger by a change to any file in to repo...
+#      - '.github/workflows/myFirstWorkflowFile.yml' #...including the workflow itself by specifying its path
+  schedule:
+#    - cron: '50 1 1 1 1' #Worklow can run on a schedule using cron jobs      
+
+permissions: write-all
+
+  
+jobs:
+  Set-up-env-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository  #REpository and file need to be checked out when workflow runs files within the repo
+        uses: actions/checkout@v2
+      - name: Checkout relevant files  
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            fileOne.py
+          sparse-checkout-cone-mode: false
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+            python-version: '3.9'
+          #Since the localphat from checking out the repo and the python needs was set up in the other job and not in the one with the run script it would not work here so need to 
+          #make it so both run in the same job
+      - name: Run script
+        #Inside run: use same exact things as would on command line
+        run: |
+            python NRFI_STATS.py
+          #All python packages/dependencies that are needed be installed every run it does not stay
+          #(and would need to be installed before file)
+#          pip install --upgrade pip
+#          pip install requests
+#          pip install bs4
+           #Git stuff as should be familiar with
+#          git config --global user.email {email associated with access to this repository}
+#          git config --global user.name {username associated with access to this repository}
+#          git pull
+#          git add .
+#          git commit -m "Workflow committ message"
+      #Github action used to committing changes
+#     - name: commit changes
+#        uses: ad-m/github-push-action@master
+#        with:
+            #secrets.{secret name} is the way to access repository secrets
+#           github_token: ${{ secrets.GithubTokenWithPermissionsSuchAsMakingCommits }} 
