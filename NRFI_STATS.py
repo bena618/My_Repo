@@ -56,7 +56,7 @@ if response.status_code == 200:
           # If there is at least one non-Spring game, add the date to the list
           if has_mlb_game:
               if date == "Today's Games":
-                  date = 'Sunday, July 14, 2024'
+                  date = 'Sunday, October 4, 2024'
                   mlb_game_dates.append(date)
                   break
               mlb_game_dates.append(date)
